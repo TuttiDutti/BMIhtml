@@ -1,0 +1,62 @@
+﻿@page
+@model WelcomeModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Formularz</title>
+     <style>
+.submit {
+background: #98D06A;
+color: #fff;
+border: 1px solid #fff;
+height: 50px;
+width: 100px;
+border-radius: 20px;
+}
+
+</style>
+</head>
+<body>
+    <h1>Proszę wypełnić poniższy formularz: </h1>
+    <form method="post">
+       <b><label asp-for="person.firstName"></label></b><br />
+        <input asp-for="person.firstName" />
+        <span asp-validation-for="person.firstName" class="text-danger"></span><br /><br />
+
+       <b><p>Płeć:</p></b> 
+        <label asp-for="person.gender">
+        <input type="radio" name="person.gender" value="kobieta" />kobieta</label><br />
+        <label asp-for="person.gender">
+        <input type="radio" name="person.gender" value="mężczyzna" />mężczyzna</label><br /><br />
+
+        <b><label asp-for="person.email"></label></b><br />
+        <input type="email" name="person.email" />
+        <span asp-validation-for="person.email" class="text-danger"></span><br /><br />
+
+        <b><label asp-for="person.age"></label></b><br />
+        <input asp-for="person.age" />
+        <span asp-validation-for="person.age" class="text-danger"></span><br /><br />
+
+        <b><label asp-for="person.weight"></label></b><br />
+        <input asp-for="person.weight" />
+        <span asp-validation-for="person.weight" class="text-danger"></span><br /><br />
+
+        <b><label asp-for="person.height"></label></b><br />
+        <input asp-for="person.height" />
+        <span asp-validation-for="person.height" class="text-danger"></span><br /><br />
+
+        <b><label asp-for="person.unit"></label></b><br />
+        <select asp-for = "person.unit">
+            <option value="">--Please choose an option--</option>
+            <option value="cm">centymetry</option>
+            <option value="m">metry</option>
+        </select>
+        <span asp-validation-for="person.age" class="text-danger"></span><br /><br />
+
+        <button class="submit">Prześlij</button>
+
+    </form>
+</body>
+</html>

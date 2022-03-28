@@ -1,0 +1,103 @@
+﻿@page "{firstName}"
+@model WebApplication2.Pages.ResultModel
+@{  
+    
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+    table {
+  font-family: arial, sans-serif;
+  font-weight: 700;
+  border-collapse: collapse;
+  width: 50%;
+  float:right;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(odd) {
+  background-color: #98D06A;
+}
+</style>
+    
+</head>
+<body>
+    <b><p style="font-size:25px"> Wprowadziłaś/-eś następujące dane:</p></b>
+    <table>
+       <tr>
+            <td>wygłodzenie</td>
+            <td>poniżej 16,0</td>
+        </tr>
+        <tr>
+            <td>wychudzenie</td>
+            <td>16,0–16,99</td>
+        </tr>
+        <tr>
+            <td>niedowaga</td>
+            <td>17,0–18,49</td>
+        </tr>
+        <tr>
+            <td>pożądana masa ciała	  </td>
+            <td>18,5–24,99</td>
+        </tr>
+        <tr>
+            <td>nadwaga</td>
+            <td>25,0–29,99</td>
+        </tr>
+        <tr>
+            <td>otyłość I stopnia</td>
+            <td>30,0–34,99</td>
+        </tr>
+        <tr>
+            <td>otyłość II stopnia </td>
+            <td>35,0–39,99</td>
+        </tr>
+        <tr>
+            <td>otyłość III stopnia  </td>
+            <td>powyżej 40,0</td>
+        </tr>
+    </table>
+    <b>Imię:</b> @Model.person.firstName <br /> 
+    <b>Płeć:</b> @Model.person.gender <br /> 
+    <b>Emial:</b> @Model.person.email <br /> 
+    <b>Wiek</b>: @Model.person.age <br /> 
+    <b>Waga:</b> @Model.person.weight kg<br />
+    <b>Wzrost:</b> @Model.person.height @Model.person.unit <br /> <br />
+
+    @if(@Model.person.bmi>=25)
+    {
+      <center><p style="font-size:30px">Twoje BMI: <span style="color: red"> @Model.person.bmi</span></p>
+       <i><span style="color: red"> Waga nieprawidłowa</span></i><br />
+       <img src="~/sad.jpg" alt="sad face" style="width:100px;height:100px;" /></center> 
+    }
+    else if(@Model.person.bmi<18.5)
+    {
+        <center><p style="font-size:30px">Twoje BMI: <span style="color: red"> @Model.person.bmi</span></p>
+       <i><span style="color: red"> Waga nieprawidłowa</span></i><br />
+       <img src="~/sad.jpg" alt="sad face" style="width:100px;height:100px;" /></center> 
+
+    }
+    else 
+    {
+        <center><p style="font-size:30px">Twoje BMI: @Model.person.bmi</p> 
+        <img src="~/happy.jpg" alt="sad face" style="width:100px;height:100px;" /></center>
+    }
+    <br />
+    
+    
+
+    
+
+</body>
+</html>
